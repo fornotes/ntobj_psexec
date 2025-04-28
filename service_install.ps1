@@ -2,9 +2,7 @@
 		
 Import-Module NtObjectManager
 $sym_path = "$env:SystemDrive\symbols"
-	
-# to help NtObjectManager parse RPC servers and resolve RPC procedures
-	
+		
 # RPC interface for SCM is - 367ABB81-9844-35F1-AD32-98F038001003 and listens on \PIPE\svcctl
 		
 $server = Get-RpcServer C:\Windows\System32\services.exe -SymbolPath $sym_path | Where-Object { $_.InterfaceId -eq '367abb81-9844-35f1-ad32-98f038001003' }
